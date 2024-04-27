@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  uuid            String   @id @default(uuid())
+  firstName       String
+  lastName        String
+  email           String
+  password        String
+  wordSafe        String
+  firstLogin      DateTime @default(now())
+  lastLogin       DateTime @default(now()) @updatedAt
+  lastIP          String?
+  lastStatsDevice String   @db.LongText
+  is_verified     Boolean  @default(false)
+  token           String   @default("") @db.LongText
+  coins           Json
+  balance         Int
+  typeUser        Int
+}
+
+model authUser {
+  id          Int      @id @default(autoincrement())
+  dateTry     DateTime @default(now())
+  uuidUser    String
+  ipTry       String?
+  statsDevice String
+}
+
+model signUpUser {
+  id          Int      @id @default(autoincrement())
+  dateTry     DateTime @default(now())
+  ipTry       String?
+  statsDevice String
+}
+
+model coin {
+  id         Int    @id @default(autoincrement())
+  name       String
+  value      Float?
+  data       DateTime? @default(now())
+  percentage Float?
+}
+
+model historyCoin {
+  id         Int    @id @default(autoincrement())
+  name       String
+  value      Float?
+  data       DateTime? @default(now())
+  percentage Float?
+}
+
+model logs {
+  id         Int      @id @default(autoincrement())
+  date       DateTime @default(now())
+  actionUser String   @db.LongText
+}
