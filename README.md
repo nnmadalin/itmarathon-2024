@@ -1,3 +1,8 @@
+
+# The application created at the 12-hour marathon ITMarathon organized by the Faculty of Automation and Computers Iasi! With this application I got the 1st place!
+
+<br><br><br>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
